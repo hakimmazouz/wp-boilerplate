@@ -1,5 +1,6 @@
 import Barba from 'barba.js'
 
+// Handy wrapper around Barba.Dispatcher
 class Emitter {
   emit(evt, ...payload) {
     return Barba.Dispatcher.trigger(evt, ...payload)

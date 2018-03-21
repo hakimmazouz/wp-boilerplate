@@ -37,9 +37,11 @@ class Framework {
   }
 
   onResize = () => {
+    // Update global config object
     config.windowWidth = window.innerWidth
     config.windowHeight = window.innerHeight
 
+    // Propogate window resize event through app and Barba views
     typeof this.app.onResize === 'function' &&
       this.app.onResize(config.windowWidth, config.windowHeight)
 
