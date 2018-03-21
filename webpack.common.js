@@ -1,18 +1,14 @@
 const webpack = require('webpack')
 const path = require('path')
 const packages = require('./package.json')
-
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
-  entry: {
-    app: './src/js/index.js',
-    vendor: Object.keys(packages.dependencies)
-  },
+  entry: './src/scripts/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'js/[name].bundle.js'
+    filename: 'static/bundle.js',
   },
   module: {
     rules: [
@@ -23,57 +19,46 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['env'],
-            plugins: [
-              ['transform-class-properties']
-            ]
-          }
-        }
+            plugins: [['transform-class-properties']],
+          },
+        },
       },
       {
-        test: /\.scss$/,
+        test: /\.css$/,
         use: ExtractTextPlugin.extract({
           use: [
             {
-              loader: 'css-loader'
-            }, {
+              loader: 'css-loader',
+            },
+            {
               loader: 'postcss-loader',
               options: {
-                plugins: (loader) => [
+                plugins: loader => [
                   require('autoprefixer'),
-                  require('cssnano')
-                ]
-              }
-            }, {
-              loader: 'sass-loader'
-            }
-          ]
-        })
-      }
-    ]
+                  require('cssnano'),
+                ],
+              },
+            },
+          ],
+        }),
+      },
+    ],
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      filename: 'js/vendor.bundle.js'
-    }),
     new ExtractTextPlugin({
-      filename: 'style.css'
+      filename: 'style.css',
     }),
     new CopyWebpackPlugin(
       [
         {
           from: './src',
           to: './',
-          force: true
-        }
+          force: true,
+        },
       ],
       {
-        ignore: [
-          '*.js',
-          '*.scss',
-          '.DS_Store'
-        ]
-      }
-    )
-  ]
+        ignore: ['*.js', '.DS_Store'],
+      },
+    ),
+  ],
 }

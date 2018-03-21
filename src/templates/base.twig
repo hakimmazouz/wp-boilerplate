@@ -3,23 +3,19 @@
 <head>
 	{% include 'html-head.twig' %}
 </head>
-<body class="is-loading">
+<body>
 
 	<noscript>
 		{% include 'noscript.twig' %}
 	</noscript>
 
-	<div id="preloader">
-		<p>Preloader</p>
-	</div>
-
 	<nav>
 		<a href="{{site.url}}" data-namespace="home">Home</a>
 	</nav>
 
-	<div id="app">
+	<div id="barba-wrapper" class="relative w-100 h-100">
 		{% block content %}
-			<div class="view" data-namespace="home">
+			<div class="barba-container" data-namespace="home">
 		    {% if posts %}
 					<h1>{{site.title}}</h1>
 		      <ul>
@@ -43,8 +39,7 @@
 		APP.THEME_URL = '{{site.theme.uri}}'
 		APP.AJAX_URL = '{{fn('admin_url', 'admin-ajax.php')}}'
 	</script>
-	<script src="{{site.theme.link}}/js/vendor.bundle.js" defer></script>
-  <script src="{{site.theme.link}}/js/app.bundle.js" defer></script>
+  <script src="{{site.theme.link}}/static/bundle.js" defer></script>
 	{{ wp_footer }}
 </body>
 </html>
