@@ -1,11 +1,10 @@
 import Barba from 'barba.js'
-import css from 'dom-css'
-import sniffer from 'sniffer'
-import FastClick from 'fastclick'
 import config from '../config'
 import views from '../views'
 import transitionReducer from '../transitions'
-import emitter from '../util/emitter'
+import sniffer from 'sniffer'
+import FastClick from 'fastclick'
+import css from 'dom-css'
 
 class Framework {
   constructor(app) {
@@ -24,9 +23,9 @@ class Framework {
 
   addEvents() {
     window.addEventListener('resize', this.onResize)
-    emitter.on('initStateChange', this.onInitStateChange)
-    emitter.on('newPageReady', this.onNewPageReady)
-    emitter.on('transitionCompleted', this.onTransitionCompleted)
+    Barba.Dispatcher.on('initStateChange', this.onInitStateChange)
+    Barba.Dispatcher.on('newPageReady', this.onNewPageReady)
+    Barba.Dispatcher.on('transitionCompleted', this.onTransitionCompleted)
   }
 
   initBarba() {

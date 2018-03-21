@@ -1,37 +1,43 @@
 # WP Boilerplate
-A custom WordPress theme development boilerplate using SCSS, Timber, Barba.js, Babel, and Webpack.
+
+A custom WordPress theme development boilerplate using Timber, Barba.js, Anime.js, Tachyons, and Webpack.
 
 ### Features
-1. SCSS minified using cssnano and autoprefixed
-2. JS bundled using Webpack and Babel
-3. Preloader section
-4. Browser & device detection
-5. Event emitter using Barba dispatcher
-6. Transition map for managing GSAP transitions
-7. Advanced custom fields for Open Graph / Social meta tags
+
+* CSS minified using cssnano and autoprefixed
+* Scripts bundled using Webpack and Babel
+* Browser & device detection
+* Transition reducer for managing dynamic Barba transitions
+* Window resize callback propogated through app and Barba views
+* Track FPS using stats util for development
 
 ### Getting Started
-- Set up a local instance of WordPress
-- Install and activate required plugins:
-  - Timber
-  - ACF
-- Create a symlink to the built theme folder
+
+1.  Set up a local instance of WordPress
+2.  Install and activate [Timber](https://www.upstatement.com/timber/)
+3.  Create a symlink to the built theme folder
+
 ```sh
-# With a local WP install in
-# ~/Documents/Sites/wordpress
-# and this repo on your desktop:
+# With a local WP install in ~/Documents/Sites/wordpress and this repo on your desktop:
 ln -s ~/Desktop/wp-boilerplate/build ~/Documents/Sites/wordpress/wp-content/themes/wp-boilerplate
 ```
-### Install dependancies:
+
+### Install dependencies from NPM:
+
 ```
-yarn
+npm i
 ```
-### Start development server
+
+### Start the development server
+
 ```
-yarn start
+npm start
 ```
+
 The project will be launched at http://localhost:3000/
+
 ### Build for production:
+
 ```
-yarn build
+npm run build
 ```

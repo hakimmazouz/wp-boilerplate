@@ -1,5 +1,4 @@
 import config from './config'
-import emitter from './util/emitter'
 
 class App {
   el = config.app
