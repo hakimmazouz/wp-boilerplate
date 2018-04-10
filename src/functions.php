@@ -1,5 +1,4 @@
 <?php
-include_once 'inc/custom_fields.php';
 
 if ( ! class_exists( 'Timber' ) ) {
 	add_action( 'admin_notices', function() {
@@ -61,7 +60,7 @@ class WPBoilerplateSite extends TimberSite {
 	function add_to_context( $context ) {
 		$context['menu'] = new TimberMenu();
 		$context['site'] = $this;
-		$context['options'] = get_fields('option');
+		// $context['options'] = get_fields('option');
 		return $context;
 	}
 
@@ -75,4 +74,5 @@ class WPBoilerplateSite extends TimberSite {
  		wp_deregister_script( 'wp-embed' );
 	}
 }
+
 new WPBoilerplateSite();
