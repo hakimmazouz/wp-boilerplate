@@ -1,28 +1,27 @@
 import anime from 'animejs'
+import scrollZero from '../util/scrollZero'
 
 export default function fade(oldContainer, newContainer, done) {
-  return animateOut()
-
-  function animateOut() {
-    return anime({
-      targets: oldContainer,
-      duration: 500,
-      opacity: 0,
-      easing: 'easeOutQuart',
-    }).finished.then(() => {
+  return anime({
+    targets: oldContainer,
+    duration: 300,
+    opacity: 0,
+    easing: 'easeOutCubic',
+  })
+    .finished.then(() => {
       oldContainer.style.display = 'none'
-      animateIn()
+      newContainer.style.opacity = 0
+      newContainer.style.visibility = 'visible'
+      scrollZero()
     })
-  }
-
-  function animateIn() {
-    newContainer.style.opacity = 0
-    newContainer.style.visibility = 'visible'
-    return anime({
-      targets: newContainer,
-      duration: 500,
-      opacity: 1,
-      easing: 'easeOutQuart',
-    }).finished.then(done)
-  }
+    .then(
+      () =>
+        anime({
+          targets: newContainer,
+          duration: 300,
+          opacity: 1,
+          easing: 'easeOutCubic',
+        }).finished,
+    )
+    .then(done)
 }
