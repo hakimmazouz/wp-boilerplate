@@ -3,8 +3,8 @@
   "version": "2.0.0",
   "description": "A WordPress boilerplate theme using Timber, Barba, Anime, Tachyons, and Webpack",
   "scripts": {
-    "build": "webpack -p --config webpack.production.js",
-    "start": "webpack --watch --config webpack.development.js"
+    "build": "webpack -p --config config/webpack.production.js",
+    "start": "webpack --watch --config config/webpack.development.js"
   },
   "dependencies": {
     "animejs": "^2.2.0",
