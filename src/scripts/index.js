@@ -1,3 +1,4 @@
+import '../style/theme.css'
 import 'tachyons'
 import '../style/index.css'
 import domready from 'domready'
