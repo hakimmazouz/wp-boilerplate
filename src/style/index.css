@@ -1,1 +1,60 @@
-/* styles */
+/* @font-face {
+  font-family: 'Nimbus Sans L';
+  src: url('../assets/NimbusSanL-Reg.eot');
+  src: url('../assets/NimbusSanL-Reg.eot?#iefix') format('embedded-opentype'),
+    url('../assets/NimbusSanL-Reg.woff2') format('woff2'),
+    url('../assets/NimbusSanL-Reg.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+} */
+
+:root {
+  font-size: 40px;
+
+  --selection-bg-color: #f0f0f0;
+
+  --body-font-family: sans-serif;
+  --body-bg-color: #fff;
+}
+
+body {
+  font-family: var(--body-font-family);
+  background-color: var(--body-bg-color);
+}
+
+::selection {
+  background-color: var(--selection-bg-color);
+}
+
+.page {
+  margin: auto;
+  margin-top: 100px;
+  max-width: 1040px;
+}
+
+ul,
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.1em;
+}
+
+a {
+  text-decoration: none;
+  color: #aaa;
+
+  &:hover {
+    color: black;
+  }
+}
