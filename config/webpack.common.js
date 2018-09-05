@@ -36,6 +36,8 @@ module.exports = {
               options: {
                 plugins: loader => [
                   require('precss'),
+                  require('postcss-math'),
+                  require('postcss-responsive-type'),
                   require('autoprefixer'),
                   require('cssnano'),
                 ],
@@ -70,22 +72,7 @@ module.exports = {
         },
       ],
       {
-        ignore: [
-          '*.js',
-          '*.css',
-          '*.jpg',
-          '*.png',
-          '*.gif',
-          '*.eot',
-          '*.svg',
-          '*.ttf',
-          '*.woff',
-          '*.woff2',
-          '*.json',
-          '*.mp4',
-          '*.ico',
-          '.DS_Store',
-        ],
+        ignore: ['*.js', '*.css', '.DS_Store'],
       },
     ),
   ],

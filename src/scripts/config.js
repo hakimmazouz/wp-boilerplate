@@ -3,4 +3,5 @@ export default {
   body: document.body,
   width: window.innerWidth,
   height: window.innerHeight,
+  wp: window.__WP_VARS,
 }

@@ -10,6 +10,8 @@ const home = Barba.BaseView.extend({
   onLeave() {},
 
   onLeaveCompleted() {},
+
+  onResize(width, height) {},
 })
 
 export default home
