@@ -10,6 +10,8 @@ const single = Barba.BaseView.extend({
   onLeave() {},
 
   onLeaveCompleted() {},
+
+  onResize(width, height) {},
 })
 
 export default single

@@ -1,9 +1,6 @@
-import dom from '../util/dom'
-
 export default class Component {
-  constructor(container = document.body) {
+  constructor() {
     this.state = {}
-    this.refs = dom(container)
   }
 
   setState(obj = {}) {
